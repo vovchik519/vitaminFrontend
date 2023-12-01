@@ -29,7 +29,7 @@ const Feedback = (props) => {
                         </form>
                     </div>
                     <div className={styles.image}>
-                        <img src={`${server}${props.imageUrl}`} alt={props.imageAlt} />
+                        <img src={`${props.imageUrl}`} alt={props.imageAlt} />
                     </div>
                 </div>
             </div>

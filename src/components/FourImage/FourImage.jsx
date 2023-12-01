@@ -21,10 +21,10 @@ const FourImage = (props) => {
                         </div>
                     </div>
                     <div className={styles.image}>
-                        <img src={`${server}${props.imageOneUrl}`} alt={props.imageOneAlt} />
-                        <img src={`${server}${props.imageTwoUrl}`} alt={props.imageTwoAlt} />
-                        <img src={`${server}${props.imageThreeUrl}`} alt={props.imageThreeAlt} />
-                        <img src={`${server}${props.imageFourUrl}`} alt={props.imageFourAlt} />
+                        <img src={`${props.imageOneUrl}`} alt={props.imageOneAlt} />
+                        <img src={`${props.imageTwoUrl}`} alt={props.imageTwoAlt} />
+                        <img src={`${props.imageThreeUrl}`} alt={props.imageThreeAlt} />
+                        <img src={`${props.imageFourUrl}`} alt={props.imageFourAlt} />
                     </div>
                     <div className={styles.info}>
                         <div className={styles.descriptionBottom}>

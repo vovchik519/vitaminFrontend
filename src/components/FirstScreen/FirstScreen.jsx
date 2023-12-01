@@ -18,10 +18,10 @@ const FirstScreen = (props) => {
             </div>
             <div className={styles.images}>
                 {props.decoration !== undefined ?
-                    <img src={`${server}${props.decoration}`} className={styles.decoration} alt='decoration' />
+                    <img src={`${props.decoration}`} className={styles.decoration} alt='decoration' />
                     : null
                }
-                <img src={`${server}${props.imageUrl}`} className={styles.image} alt={props.imageAlt} />
+                <img src={`${props.imageUrl}`} className={styles.image} alt={props.imageAlt} />
             </div>
         </section>
     );

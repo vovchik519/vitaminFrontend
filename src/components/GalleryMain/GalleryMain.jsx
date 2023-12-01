@@ -43,7 +43,7 @@ const GalleryMain = (props) => {
                     >
                         {slides.map((image, index) => (
                             <SwiperSlide key={index}>
-                                <img src={`${server}${image}`} alt='slide' />
+                                <img src={`${image}`} alt='slide' />
                             </SwiperSlide>
                         ))}
                     </Swiper>
