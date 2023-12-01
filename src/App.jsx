@@ -13,7 +13,6 @@ import Gallery from './pages/Gallery/Gallery';
 import Pantry from './pages/Pantry/Pantry';
 import PoemItem from './pages/PoemItem/PoemItem';
 
-
 const App = () => {
   return (
     <div className='app'>
