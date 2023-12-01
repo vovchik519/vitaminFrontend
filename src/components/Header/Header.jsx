@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Header.module.scss';
 import Language from './../Language/Language';
 import sprite from './../../images/icons/sprite.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     let server = 'http://localhost:1337'
@@ -86,7 +87,9 @@ const Header = () => {
                             <nav className={styles.menu}>
                                 <ul>
                                     {menu.map((item, index) => (
-                                        <li key={index}><a href={item.link}>{item.name}</a></li>
+                                        <li key={index}>
+                                            <Link to={item.link}>{item.name}</Link>
+                                        </li>
                                     ))}
                                 </ul>
                             </nav>
