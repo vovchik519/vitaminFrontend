@@ -4,6 +4,7 @@ import styles from './FirstPage.module.scss';
 import sprite from './../../images/icons/sprite.svg';
 import Language from './../../components/Language/Language';
 import LogoWithName from './../../components/LogoWithName/LogoWithName';
+import { Link } from 'react-router-dom';
 
 const FirstPage = () => {
     let server = 'https://vitamin-strapi.onrender.com'
@@ -68,11 +69,11 @@ const FirstPage = () => {
             </div>
             <div className={styles.foot}>
                 <Language />
-                <a href="/home" className={styles.link} aria-label={data.buttonName}>
+                <Link to='/home' className={styles.link} aria-label={data.buttonName}>
                     <svg className="icon">
                         <use xlinkHref={`${sprite}#icon-arrow-right`}></use>
                     </svg>
-                </a>
+                </Link>
             </div>
         </section>
     );
