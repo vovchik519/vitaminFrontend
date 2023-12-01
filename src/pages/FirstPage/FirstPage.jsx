@@ -6,10 +6,9 @@ import Language from './../../components/Language/Language';
 import LogoWithName from './../../components/LogoWithName/LogoWithName';
 
 const FirstPage = () => {
-    let server = 'http://localhost:1337'
+    let server = 'https://vitamin-strapi.onrender.com'
 
-    let lang = localStorage.getItem('selectedLanguage');
-
+    let lang = localStorage.getItem('selectedLanguage')
     useEffect(() => {
         const newPromise = (ms = 0) => {
             return new Promise(r => setTimeout(() => r(), ms))
@@ -22,10 +21,11 @@ const FirstPage = () => {
                 await newPromise();
                 const response = await fetch(firstPage, {
                     headers: {
-                        Authorization: `Bearer 3d3e36e5ea990d87a42dfa45f2ea001352b21b00bf46f682e2f8842e5dabd5a7d8ba4e86ea548f4f380b15383f13bc50408e72492e573d8a864bf64a2bd8e30b78126b41b7bb67f2b45b078179428596009b497a90c6f047db3d678a4ec958b6f90228b65e6e23296d31d1a5b77994cd43fac61dd84c6cdc635db6596f5fc9bd`
+                        Authorization: `Bearer fd26c9a878ece75102c441f98a73a4be3881ba87731629140768819967df44db29876069e205f0f19066a7eeaef7786e45bdbdf292a56475a09049b1f88ee1f29dcab5aabf7b00ed17a27b79ab82b7ee2f40bbf95f1db3751cc1ffe7fce3379e02f6460ebea118269a5c08bbc8393ee2acadeb5fa88cd67424586f65c8116cdb`
                     }
                 });
                 const data = await response.json();
+                console.log(data)
                 // firstpage data
                 setData(data.data.attributes);
                 // logo
