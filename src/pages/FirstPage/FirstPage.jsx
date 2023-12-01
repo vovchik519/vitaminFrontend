@@ -21,7 +21,7 @@ const FirstPage = () => {
                 await newPromise();
                 const response = await fetch(firstPage, {
                     headers: {
-                        Authorization: `Bearer fd26c9a878ece75102c441f98a73a4be3881ba87731629140768819967df44db29876069e205f0f19066a7eeaef7786e45bdbdf292a56475a09049b1f88ee1f29dcab5aabf7b00ed17a27b79ab82b7ee2f40bbf95f1db3751cc1ffe7fce3379e02f6460ebea118269a5c08bbc8393ee2acadeb5fa88cd67424586f65c8116cdb`
+                        Authorization: `Bearer 9fab64c807e3cdfb0e860ccfadbc119c70f2fc0b75b78361a93a0ea8aac5367576122a52f06300e57f5b6ccd787bc4d18e7323fef914a990ae10fd1da553b65855e81340473a99a037f7032eaedcef8bbab8e42a3d661d47be167fa6e8d82242f5c8c65098d26157822b92967df3b4192b4160e63277c30e3dc4648f9a37d558`
                     }
                 });
                 const data = await response.json();
