@@ -15,13 +15,12 @@ import PoemItem from './pages/PoemItem/PoemItem';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <div className='app'>
-          {document.location.pathname !== '/' && (
-            < Header />
-          )}
-          <main>
+    <div className='app'>
+      {document.location.pathname !== '/' && (
+        <Header />
+      )}
+      <main>
+          <Routes>
             <Route path="/" index element={<FirstPage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -30,15 +29,14 @@ const App = () => {
             <Route path="/poem" element={<PoemItem />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/pantry" element={<Pantry />} />
-          </main>
-          {document.location.pathname !== '/' && (
-            document.location.pathname === '/home' ? (
-              <Footer theme='white' />
-            ) : <Footer />
-          )}
-        </div>
-      </Routes>
-    </BrowserRouter >
+          </Routes>
+      </main>
+      {document.location.pathname !== '/' && (
+        document.location.pathname === '/home' ? (
+          <Footer theme='white' />
+        ) : <Footer />
+      )}
+    </div>
   );
 };
 
