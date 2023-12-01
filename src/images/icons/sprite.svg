@@ -1,0 +1,41 @@
+<svg display="none" xmlns="http://www.w3.org/2000/svg">
+	<symbol id="icon-arrow-right" viewBox="0 0 80 80" fill="none">
+		<g>
+			<path d="M6 40L74 40" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M51 17L74.3333 40.3333L51 63.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</symbol>
+	<symbol id="icon-arrow-link" viewBox="0 0 16 9" fill="none">
+		<g>
+			<path d="M15.3536 4.85355C15.5488 4.65829 15.5488 4.34171 15.3536 4.14645L12.1716 0.964466C11.9763 0.769204 11.6597 0.769204 11.4645 0.964466C11.2692 1.15973 11.2692 1.47631 11.4645 1.67157L14.2929 4.5L11.4645 7.32843C11.2692 7.52369 11.2692 7.84027 11.4645 8.03553C11.6597 8.2308 11.9763 8.2308 12.1716 8.03553L15.3536 4.85355ZM0 5H15V4H0V5Z" />
+		</g>
+	</symbol>
+	<symbol id="icon-arrow-slider" viewBox="0 0 20 8" fill="none">
+		<g>
+			<path d="M19.3536 4.35356C19.5488 4.1583 19.5488 3.84171 19.3536 3.64645L16.1716 0.464469C15.9763 0.269207 15.6597 0.269207 15.4645 0.464469C15.2692 0.659731 15.2692 0.976314 15.4645 1.17158L18.2929 4L15.4645 6.82843C15.2692 7.02369 15.2692 7.34027 15.4645 7.53554C15.6597 7.7308 15.9763 7.7308 16.1716 7.53554L19.3536 4.35356ZM-9.90792e-08 4.5L19 4.5L19 3.5L9.90792e-08 3.5L-9.90792e-08 4.5Z" fill="white" />
+		</g>
+	</symbol>
+	<symbol id="icon-border-one" viewBox="0 0 158 55" fill="none">
+		<g>
+			<path opacity="0.8" d="M79.2383 53.4843C110.295 50.844 168.844 40.417 154.59 19.8313C136.773 -5.90074 65.1225 1.19207 40.6594 4.56532C16.1964 7.93856 -12.2424 22.874 6.63375 41.0889C21.7347 55.6608 80.3307 47.8001 107.741 42.0483" stroke="white" stroke-linecap="square" stroke-linejoin="round" />
+		</g>
+	</symbol>
+	<symbol id="icon-burger-open" viewBox="0 0 64 64" fill="none">
+		<g>
+			<path d="M53 21H11c-1.7 0-3-1.3-3-3s1.3-3 3-3h42c1.7 0 3 1.3 3 3s-1.3 3-3 3zM53 35H11c-1.7 0-3-1.3-3-3s1.3-3 3-3h42c1.7 0 3 1.3 3 3s-1.3 3-3 3zM53 49H11c-1.7 0-3-1.3-3-3s1.3-3 3-3h42c1.7 0 3 1.3 3 3s-1.3 3-3 3z" fill="white" opacity="1" data-original="white">
+			</path>
+		</g>
+	</symbol>
+	<symbol id="icon-burger-close" viewBox="0 0 40 40" fill="none">
+		<g>
+			<path d="M19.9987 36.6663C29.2034 36.6663 36.6654 29.2044 36.6654 19.9997C36.6654 10.7949 29.2034 3.33301 19.9987 3.33301C10.794 3.33301 3.33203 10.7949 3.33203 19.9997C3.33203 29.2044 10.794 36.6663 19.9987 36.6663Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M25 15L15 25" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M15 15L25 25" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</symbol>
+	<symbol id="icon-navigation-arrow" viewBox="0 0 29 28" fill="none">
+		<g>
+			<path d="M18 21L11 14L18 7" stroke-linecap="round" stroke-linejoin="round" />
+		</g>
+	</symbol>
+</svg>
