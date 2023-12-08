@@ -14,6 +14,7 @@ const App = () => {
   return (
     <div className='app'>
       <main>
+        <BrowserRouter>
           <Routes>
             <Route path="/" index element={<FirstPage />} />
             <Route path="/home" element={<Home />} />
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/pantry" element={<Pantry />} />
           </Routes>
+        </BrowserRouter>
       </main>
     </div>
   );
