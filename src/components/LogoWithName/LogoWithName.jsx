@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './LogoWithName.module.scss';
 
 const LogoWithName = (props) => {
-    let server = 'vitamin-strapi.onrender.com'
+    let server = 'https://vitamin-strapi.onrender.com'
     
     return (
         <div className={`${styles.logo} ${props.theme !== undefined ? styles[props.theme] : ''}`}>

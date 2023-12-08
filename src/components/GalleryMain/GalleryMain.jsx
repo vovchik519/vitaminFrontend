@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 
 const GalleryMain = (props) => {
-    let server = 'vitamin-strapi.onrender.com'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     let { slides } = props;
 

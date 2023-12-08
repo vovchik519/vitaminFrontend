@@ -12,7 +12,7 @@ import Footer from './../../components/Footer/Footer';
 import Header from './../../components/Header/Header';
 
 const Home = () => {
-    let server = 'vitamin-strapi.onrender.com'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     let lang = localStorage.getItem('selectedLanguage');
 

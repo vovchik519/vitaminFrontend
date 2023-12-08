@@ -8,7 +8,7 @@ import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 
 const Article = () => {
-    let server = 'vitamin-strapi.onrender.com'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     let lang = localStorage.getItem('selectedLanguage');
 
