@@ -8,6 +8,7 @@ import 'swiper/css/autoplay';
 
 import Name from './../../ui/Name/Name';
 import sprite from './../../images/icons/sprite.svg';
+import { Link } from 'react-router-dom';
 
 
 const GalleryMain = (props) => {
@@ -25,7 +26,7 @@ const GalleryMain = (props) => {
                         <Name
                             name={props.name}
                         />
-                        <a href={props.buttonLink}>{props.buttonName}</a>
+                        <Link to={props.buttonLink}>{props.buttonName}</Link>
                     </div>
                     <Swiper
                         modules={[Autoplay, Navigation]}

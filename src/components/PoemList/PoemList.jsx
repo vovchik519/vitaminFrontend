@@ -117,7 +117,11 @@ const PoemList = (props) => {
                                                 ))}
                                             </div>
                                         </div>
-                                        <a href={`/poem#${blockId}`} onClick={props.event} className={styles.link}>Читать полностью</a>
+                                        {lang === 'ru' ?
+                                            <a href={`/poem#${blockId}`} onClick={props.event} className={styles.link}>Читать полностью</a>
+                                            :
+                                            <a href={`/poem#${blockId}`} onClick={props.event} className={styles.link}>read in full</a>
+                                        }
                                     </div>
                                 </div>
                             </SwiperSlide>

@@ -67,17 +67,17 @@ const Header = () => {
                             </svg>
                         </button>
                         <div className={styles.logo}>
-                            <a href="/home" aria-label='Главная страница'>
+                            <Link to="/home" aria-label='Главная страница'>
                                 <img src={`${logo.url}`} alt={logo.alternativeText} />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className={`${styles.menu__modal} ${menuOpen ? styles.active : ''}`}>
                         <div className={styles.menu__modalWrap}>
                             <div className={styles.menu__logo}>
-                                <a href="/home" aria-label="Главная страница">
+                                <Link to="/home" aria-label="Главная страница">
                                     <img src={`${logo.url}`} alt={logo.alternativeText} />
-                                </a>
+                                </Link>
                                 <button type="button" className={styles.menu__burger} onClick={handleMenuOpen} aria-label="Закрыть меню">
                                     <svg className='icon'>
                                         <use xlinkHref={`${sprite}#icon-burger-close`}></use>

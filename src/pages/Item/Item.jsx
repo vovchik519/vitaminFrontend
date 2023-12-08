@@ -10,6 +10,9 @@ import sprite from './../../images/icons/sprite.svg';
 import Name from './../../ui/Name/Name';
 import LinkDark from '../../ui/LinkDark/LinkDark';
 
+import Header from './../../components/Header/Header';
+import Footer from './../../components/Footer/Footer';
+
 const Item = () => {
     let server = 'http://localhost:1337'
 
@@ -99,6 +102,7 @@ const Item = () => {
     
     return (
         <>
+            <Header />
             <section className={styles.article}>
                 {articlesId.map((blockId, index) => (
                     blockId == window.location.hash.substring(1) ? (
@@ -134,7 +138,11 @@ const Item = () => {
                 <div className="container">
                     <div className={styles.otherArticlesWrap}>
                         <div className={styles.otherArticlesTitle}>
-                            <Name name="Ещё рассказы" />
+                            {lang === 'ru' ? 
+                                <Name name="Ещё рассказы" />
+                                :
+                                <Name name="More stories" />
+                            }
                         </div>
                         <Swiper
                             modules={[Autoplay, Pagination, Navigation]}
@@ -175,10 +183,16 @@ const Item = () => {
                                             <img src={`${articlesImage[index]}`} alt="image article" />
                                         </div>
                                         <div onClick={handleReloadClick}>
+                                            {lang === 'ru' ?
                                             <LinkDark
                                                 link={`/item#${blockId}`}
                                                 name='Читать полностью'
-                                            />
+                                                /> :
+                                                <LinkDark
+                                                    link={`/item#${blockId}`}
+                                                    name='read'
+                                                />
+                                            }
                                         </div>
                                     </div>
                                 </SwiperSlide>
@@ -200,6 +214,7 @@ const Item = () => {
                     </div>
                 </div>
             </section >
+            <Footer />
         </>
     );
 };

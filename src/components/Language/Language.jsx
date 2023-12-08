@@ -8,8 +8,10 @@ const Language = () => {
         setLang(newLang);
         localStorage.setItem('selectedLanguage', newLang);
         document.location.reload()
+        if (document.location.pathname === '/item' || document.location.pathname === '/poem') {
+            window.history.back();
+        }
     };
-
     return (
         <div className={styles.language}>
             <div className={styles.border}>

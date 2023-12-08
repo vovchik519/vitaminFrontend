@@ -59,6 +59,7 @@
     width: 100%;
     height: clamp(260px, calc(47.8125rem + ((1vw - 14.4px) * 46.7593)), 765px);
     object-fit: cover;
+    object-position: top;
 }
 @media (max-width: 1024px) {
     .titleWrap {

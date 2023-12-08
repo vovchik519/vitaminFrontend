@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import styles from './Footer.module.scss';
 import LogoWithName from './../LogoWithName/LogoWithName';
+import { Link } from 'react-router-dom';
 
 const Footer = (props) => {
     let server = 'http://localhost:1337'
@@ -78,7 +79,7 @@ const Footer = (props) => {
             <div className={styles.wrap}>
                 <div className="container">
                     <div className={styles.main}>
-                        <a href="/home" aria-label="Главная страница" className={styles.logo}>
+                        <Link to="/home" aria-label="Главная страница" className={styles.logo}>
                             <LogoWithName
                                 theme={props.theme}
                                 url={logoImg.url}
@@ -86,11 +87,11 @@ const Footer = (props) => {
                                 alt={logoImg.alternativeText}
                                 name={logo.name}
                             />
-                        </a>
+                        </Link>
                         <nav className={styles.menu}>
                             <ul>
                                 {menu.map((item, index) => (
-                                    <li key={index}><a href={item.link}>{item.name}</a></li>
+                                    <li key={index}><Link to={item.link}>{item.name}</Link></li>
                                 ))}
                             </ul>
                         </nav>
@@ -125,11 +126,19 @@ const Footer = (props) => {
                 </div>
                 <div className={styles.subinfoWrap}>
                     <div className="container">
+                        {lang === 'ru' ? 
                         <div className={styles.subinfo}>
-                            <p>Все права защищены @ 2023 </p>
+                            <p>Все права защищены @ 2023</p>
                             <p>Политика конфиденциальности</p>
                             <p>Сделано в Deviart</p>
-                        </div>
+                            </div>
+                            :
+                            <div className={styles.subinfo}>
+                                <p>All rights reserved @ 2023</p>
+                                <p>Confidentiality Policy</p>
+                                <p>Made in Deviart</p>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

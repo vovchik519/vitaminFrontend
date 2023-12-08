@@ -8,9 +8,11 @@ import GalleryMain from './../../components/GalleryMain/GalleryMain';
 import Feedback from './../../components/Feedback/Feedback';
 import BannerOne from './../../components/BannerOne/BannerOne';
 import BannerTwo from './../../components/BannerTwo/BannerTwo';
+import Footer from './../../components/Footer/Footer';
+import Header from './../../components/Header/Header';
 
 const Home = () => {
-    let server = 'https://vitamin-strapi.onrender.com'
+    let server = 'http://localhost:1337'
 
     let lang = localStorage.getItem('selectedLanguage');
 
@@ -26,7 +28,7 @@ const Home = () => {
                 await newPromise();
                 const response = await fetch(homePage, {
                     headers: {
-                        Authorization: `Bearer 9fab64c807e3cdfb0e860ccfadbc119c70f2fc0b75b78361a93a0ea8aac5367576122a52f06300e57f5b6ccd787bc4d18e7323fef914a990ae10fd1da553b65855e81340473a99a037f7032eaedcef8bbab8e42a3d661d47be167fa6e8d82242f5c8c65098d26157822b92967df3b4192b4160e63277c30e3dc4648f9a37d558`
+                        Authorization: `Bearer b75776599df32545d6e9e7d468f8fc1ec3876b31a190232475eb3dcca0f7e663bee7cd2dbc1325dfd3564db055bfa8d8bfc340dffb204d04fd174cf984a4804392dec9c6efe62e185727c98b7475da3c75b80e66e6ab8e552126b86142c3ef265a3cfafe9602ffcb7de97d4344560640f4fcb1803592a23f3525cd13de183ade`
                     }
                 });
                 const data = await response.json();
@@ -135,6 +137,7 @@ const Home = () => {
     }
     return (
         <div className={styles.wrapper}>
+            <Header />
             <FirstScreen
                 name={mainScreen.name}
                 titleStart={mainScreenTitle.titleStart}
@@ -191,6 +194,7 @@ const Home = () => {
                 buttonName={storeroomButton.name}
                 buttonLink={storeroomButton.link}
             />
+            <Footer theme='white' />
         </div>
     );
 };

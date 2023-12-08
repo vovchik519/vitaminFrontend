@@ -1,9 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import React from 'react';
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-
 import FirstPage from './pages/FirstPage/FirstPage';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
@@ -16,9 +13,6 @@ import PoemItem from './pages/PoemItem/PoemItem';
 const App = () => {
   return (
     <div className='app'>
-      {document.location.pathname !== '/' && (
-        <Header />
-      )}
       <main>
           <Routes>
             <Route path="/" index element={<FirstPage />} />
@@ -31,11 +25,6 @@ const App = () => {
             <Route path="/pantry" element={<Pantry />} />
           </Routes>
       </main>
-      {document.location.pathname !== '/' && (
-        document.location.pathname === '/home' ? (
-          <Footer theme='white' />
-        ) : <Footer />
-      )}
     </div>
   );
 };

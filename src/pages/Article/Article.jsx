@@ -4,6 +4,9 @@ import styles from './Article.module.scss';
 
 import FirstScreen from './../../components/FirstScreen/FirstScreen';
 
+import Header from './../../components/Header/Header';
+import Footer from './../../components/Footer/Footer';
+
 const Article = () => {
     let server = 'http://localhost:1337'
 
@@ -98,53 +101,61 @@ const Article = () => {
     const [articlesImage, setArticlesImage] = useState([]);
 
     return (
-        <div className={styles.wrapper}>
-            <FirstScreen
-                name={mainScreen.name}
-                titleStart={mainScreenTitle.titleStart}
-                titleColored={mainScreenTitle.titleColored}
-                titleEnd={mainScreenTitle.titleEnd}
-                description={mainScreen.description}
-                imageUrl={mainScreenImage.url}
-                imageAlt={mainScreenImage.alternativeText}
-                decoration={mainScreenDecoration.url}
-            />
-            <section className={styles.articles}>
-                {articlesId.map((blockId, index) => (
-                    <div key={index} className={styles.block}>
-                        <div className="container">
-                            <div className={styles.blockWrap}>
-                                <div className={styles.info}>
-                                    <div className={styles.infoWrap}>
-                                        <h2>
-                                            {articlesTitle[index]}
-                                        </h2>
-                                        {articlesParagraphId[index].map((paragraphId, paragraphIndex) => (
-                                            <div key={paragraphIndex} className={styles.paragraph}>
-                                                <h3>
-                                                    {articlesParagraphTitle[index][paragraphIndex]}
-                                                </h3>
-                                                <div className={styles.text}>
-                                                    {articlesParagraph[index][paragraphIndex].map((textId, textIndex) => (
-                                                        <p key={textIndex} className={articlesParagraphIndents[index][paragraphIndex][textIndex] === true ? '' : 'indent'}>
-                                                            {articlesParagraph[index][paragraphIndex][textIndex]}
-                                                        </p>
-                                                    ))}
+        <>
+            <Header />
+            <div className={styles.wrapper}>
+                <FirstScreen
+                    name={mainScreen.name}
+                    titleStart={mainScreenTitle.titleStart}
+                    titleColored={mainScreenTitle.titleColored}
+                    titleEnd={mainScreenTitle.titleEnd}
+                    description={mainScreen.description}
+                    imageUrl={mainScreenImage.url}
+                    imageAlt={mainScreenImage.alternativeText}
+                    decoration={mainScreenDecoration.url}
+                />
+                <section className={styles.articles}>
+                    {articlesId.map((blockId, index) => (
+                        <div key={index} className={styles.block}>
+                            <div className="container">
+                                <div className={styles.blockWrap}>
+                                    <div className={styles.info}>
+                                        <div className={styles.infoWrap}>
+                                            <h2>
+                                                {articlesTitle[index]}
+                                            </h2>
+                                            {articlesParagraphId[index].map((paragraphId, paragraphIndex) => (
+                                                <div key={paragraphIndex} className={styles.paragraph}>
+                                                    <h3>
+                                                        {articlesParagraphTitle[index][paragraphIndex]}
+                                                    </h3>
+                                                    <div className={styles.text}>
+                                                        {articlesParagraph[index][paragraphIndex].map((textId, textIndex) => (
+                                                            <p key={textIndex} className={articlesParagraphIndents[index][paragraphIndex][textIndex] === true ? '' : 'indent'}>
+                                                                {articlesParagraph[index][paragraphIndex][textIndex]}
+                                                            </p>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
+                                        {lang === 'ru' ?
+                                            <a href={`/item#${blockId}`}>Читать полностью</a>
+                                            :
+                                            <a href={`/item#${blockId}`}>read in full</a>
+                                        }
                                     </div>
-                                    <a href={`/item#${blockId}`}>Читать полностью</a>
-                                </div>
-                                <div className={styles.image}>
-                                    <img src={`${articlesImage[index]}`} alt="image article" />
+                                    <div className={styles.image}>
+                                        <img src={`${articlesImage[index]}`} alt="image article" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </section>
-        </div>
+                    ))}
+                </section>
+            </div>
+            <Footer />
+        </>
     );
 };
 

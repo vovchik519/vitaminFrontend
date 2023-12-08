@@ -7,6 +7,9 @@ import BlockList from './../../components/BlockList/BlockList';
 import Poem from './../../components/Poem/Poem';
 import FourImage from './../../components/FourImage/FourImage';
 
+import Header from './../../components/Header/Header';
+import Footer from './../../components/Footer/Footer';
+
 const About = () => {
     let server = 'http://localhost:1337'
 
@@ -125,63 +128,69 @@ const About = () => {
     multiData(gicleeDescriptionsBottomArray, gicleeInfoBottom, 'paragraph')
     multiData(gicleeDescriptionsTopIndentsArray, gicleeInfoTop, 'removeIndentation')
     multiData(gicleeDescriptionsBottomIndentsArray, gicleeInfoBottom, 'removeIndentation')
-    
+
     function multiData(array, data, key) {
         for (let i = 0; i < data.length; i++) {
             array.push(data[i][key])
         }
     }
     return (
-        <div className={styles.wrapper}>
-            <FirstScreen
-                name={mainScreen.name}
-                titleStart={mainScreenTitle.titleStart}
-                titleColored={mainScreenTitle.titleColored}
-                titleEnd={mainScreenTitle.titleEnd}
-                description={mainScreen.description}
-                imageUrl={mainScreenImage.url}
-                imageAlt={mainScreenImage.alternativeText}
-                decoration={mainScreenDecoration.url}
-            />
-            <BlockList
-                title={info.title}
-                descriptions={infoDescriptionsArray}
-                descriptionsIndents={infoDescriptionsIndentsArray}
-                list={infoList}
-                listIndents={infoListIndentsArray}
-                imageUrl={infoImage.url}
-                imageAlt={infoImage.alternativeText}
-            />
-            <Poem
-                content={poemParagraphArray}
-                indents={poemIndentsArray}
-            />
-            <BlockList
-                title={family.title}
-                descriptions={familyDescriptionsArray}
-                descriptionsIndents={familyDescriptionsIndentsArray}
-                list={familyList}
-                listIndents={familyListIndentsArray}
-                imageUrl={familyImage.url}
-                imageAlt={familyImage.alternativeText}
-                type="two"
-            />
-            <FourImage
-                title={giclee.title}
-                descriptionsTop={gicleeDescriptionsTopArray}
-                descriptionsTopIndents={gicleeDescriptionsTopIndentsArray}
-                descriptionsBottom={gicleeDescriptionsBottomArray}
-                descriptionsBottomIndents={gicleeDescriptionsBottomIndentsArray}
-                imageOneUrl={gicleeImageOne.url}
-                imageOneAlt={gicleeImageOne.alternativeText}
-                imageTwoUrl={gicleeImageTwo.url}
-                imageTwoAlt={gicleeImageTwo.alternativeText}
-                imageThreeUrl={gicleeImageThree.url}
-                imageThreeAlt={gicleeImageThree.alternativeText}
-                imageFourUrl={gicleeImageFour.url}
-                imageFourAlt={gicleeImageFour.alternativeText}
-            />
-        </div>
+        <>
+            <Header />
+            <div className={styles.wrapper}>
+                <FirstScreen
+                    name={mainScreen.name}
+                    titleStart={mainScreenTitle.titleStart}
+                    titleColored={mainScreenTitle.titleColored}
+                    titleEnd={mainScreenTitle.titleEnd}
+                    description={mainScreen.description}
+                    imageUrl={mainScreenImage.url}
+                    imageAlt={mainScreenImage.alternativeText}
+                    decoration={mainScreenDecoration.url}
+                />
+                <BlockList
+                    title={info.title}
+                    descriptions={infoDescriptionsArray}
+                    descriptionsIndents={infoDescriptionsIndentsArray}
+                    list={infoList}
+                    listIndents={infoListIndentsArray}
+                    imageUrl={infoImage.url}
+                    imageAlt={infoImage.alternativeText}
+                />
+                {poem.length !== 0 ?
+                    <Poem
+                        content={poemParagraphArray}
+                        indents={poemIndentsArray}
+                    /> : null
+                }
+                <BlockList
+                    title={family.title}
+                    descriptions={familyDescriptionsArray}
+                    descriptionsIndents={familyDescriptionsIndentsArray}
+                    list={familyList}
+                    listIndents={familyListIndentsArray}
+                    imageUrl={familyImage.url}
+                    imageAlt={familyImage.alternativeText}
+                    type="two"
+                />
+                <FourImage
+                    title={giclee.title}
+                    descriptionsTop={gicleeDescriptionsTopArray}
+                    descriptionsTopIndents={gicleeDescriptionsTopIndentsArray}
+                    descriptionsBottom={gicleeDescriptionsBottomArray}
+                    descriptionsBottomIndents={gicleeDescriptionsBottomIndentsArray}
+                    imageOneUrl={gicleeImageOne.url}
+                    imageOneAlt={gicleeImageOne.alternativeText}
+                    imageTwoUrl={gicleeImageTwo.url}
+                    imageTwoAlt={gicleeImageTwo.alternativeText}
+                    imageThreeUrl={gicleeImageThree.url}
+                    imageThreeAlt={gicleeImageThree.alternativeText}
+                    imageFourUrl={gicleeImageFour.url}
+                    imageFourAlt={gicleeImageFour.alternativeText}
+                />
+            </div>
+            <Footer />
+        </>
     );
 };
 

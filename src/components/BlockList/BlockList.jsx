@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './BlockList.module.scss';
+import { Link } from 'react-router-dom';
 
 const BlockList = (props) => {
     let server = 'http://localhost:1337'
@@ -27,7 +28,7 @@ const BlockList = (props) => {
                             {listId.map((item, index) => (
                                 <li className={props.listIndents[index] === true ? '' : styles.indent} key={index}>
                                     {list[index].textStart !== null ? list[index].textStart : ''}
-                                    {list[index].link !== null ? <a href={list[index].link}>{list[index].link}</a> : ''}
+                                    {list[index].link !== null ? <a href={`http://${list[index].link}`} target='_blank'>{list[index].link}</a> : ''}
                                     {list[index].textEnd !== null ? list[index].textEnd : ''}</li>
                             ))}
                         </ul>

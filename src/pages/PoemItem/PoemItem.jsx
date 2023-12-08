@@ -7,6 +7,9 @@ import 'swiper/css/autoplay';
 
 import PoemSection from '../../components/PoemSection/PoemSection';
 
+import Header from './../../components/Header/Header';
+import Footer from './../../components/Footer/Footer';
+
 const PoemItem = () => {
     let server = 'http://localhost:1337'
 
@@ -71,6 +74,7 @@ const PoemItem = () => {
 
     return (
         <>
+            <Header />
             <section className={styles.wrapper}>
                 <div className="container">
                     {articlesId.map((blockId, index) => (
@@ -95,6 +99,7 @@ const PoemItem = () => {
                 event={handleReloadClick}
                 page='poem-page'
             />
+            <Footer />
         </>
     );
 };

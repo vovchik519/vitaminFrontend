@@ -5,6 +5,9 @@ import styles from './Gallery.module.scss';
 import FirstScreen from './../../components/FirstScreen/FirstScreen';
 import Masonry from 'react-masonry-css';
 
+import Header from './../../components/Header/Header';
+import Footer from './../../components/Footer/Footer';
+
 const Gallery = () => {
     let server = 'http://localhost:1337'
 
@@ -97,56 +100,60 @@ const Gallery = () => {
         520: 1,
     };
     return (
-        <div className={styles.wrapper}>
-            <FirstScreen
-                name={mainScreen.name}
-                titleStart={mainScreenTitle.titleStart}
-                titleColored={mainScreenTitle.titleColored}
-                titleEnd={mainScreenTitle.titleEnd}
-                description={mainScreen.description}
-                imageUrl={mainScreenImage.url}
-                imageAlt={mainScreenImage.alternativeText}
-                decoration={mainScreenDecoration.url}
-            />
-            <div>
-                {galleryId.map((blockId, index) => (
-                    <div key={index} className={styles.gallery}>
-                        <div className="container">
-                            <div className={styles.titleWrap}>
-                                <div className={styles.titleTop}>
-                                    <h2>{galleryTitle[index]}</h2>
-                                    <div>
-                                        {galleryDescription[index].map((paragraph, descriptionIndex) => (
-                                            <p className={galleryDescriptionIndent[index][descriptionIndex] === true ? '' : 'indent'} key={descriptionIndex}>
-                                                {paragraph}
-                                            </p>
-                                        ))}
+        <>
+            <Header />
+            <div className={styles.wrapper}>
+                <FirstScreen
+                    name={mainScreen.name}
+                    titleStart={mainScreenTitle.titleStart}
+                    titleColored={mainScreenTitle.titleColored}
+                    titleEnd={mainScreenTitle.titleEnd}
+                    description={mainScreen.description}
+                    imageUrl={mainScreenImage.url}
+                    imageAlt={mainScreenImage.alternativeText}
+                    decoration={mainScreenDecoration.url}
+                />
+                <div>
+                    {galleryId.map((blockId, index) => (
+                        <div key={index} className={styles.gallery}>
+                            <div className="container">
+                                <div className={styles.titleWrap}>
+                                    <div className={styles.titleTop}>
+                                        <h2>{galleryTitle[index]}</h2>
+                                        <div>
+                                            {galleryDescription[index].map((paragraph, descriptionIndex) => (
+                                                <p className={galleryDescriptionIndent[index][descriptionIndex] === true ? '' : 'indent'} key={descriptionIndex}>
+                                                    {paragraph}
+                                                </p>
+                                            ))}
+                                        </div>
                                     </div>
+                                    <h3>{gallerySubTitle[index]}</h3>
                                 </div>
-                                <h3>{gallerySubTitle[index]}</h3>
-                            </div>
-                            <div className={styles.images}>
-                                <ImageGroup>
-                                    <Masonry
-                                        breakpointCols={breakpointColumnsObj}
-                                        className="images-wrap"
-                                        columnClassName="images-column">
-                                        {galleryImage[index].map((image, imageIndex) => (
-                                            <div key={imageIndex} className={styles.imageTop}>
-                                                <div key={imageIndex} className={styles.image}>
-                                                    <Image src={`${server}${image}`} alt="Картинка" />
+                                <div className={styles.images}>
+                                    <ImageGroup>
+                                        <Masonry
+                                            breakpointCols={breakpointColumnsObj}
+                                            className="images-wrap"
+                                            columnClassName="images-column">
+                                            {galleryImage[index].map((image, imageIndex) => (
+                                                <div key={imageIndex} className={styles.imageTop}>
+                                                    <div key={imageIndex} className={styles.image}>
+                                                        <Image src={`${image}`} alt="Картинка" />
+                                                    </div>
+                                                    <h3>{gallerySignature[index][imageIndex]}</h3>
                                                 </div>
-                                                <h3>{gallerySignature[index][imageIndex]}</h3>
-                                            </div>
-                                        ))}
-                                    </Masonry>
-                                </ImageGroup>
+                                            ))}
+                                        </Masonry>
+                                    </ImageGroup>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 
