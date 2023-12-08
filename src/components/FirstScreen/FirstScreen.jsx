@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FirstScreen.module.scss';
 
 const FirstScreen = (props) => {
-    let server = 'http://localhost:1337'
+    let server = 'vitamin-strapi.onrender.com'
     return (
         <section className={styles.wrapper}>
             <div className="container">

@@ -12,7 +12,7 @@ import Footer from './../../components/Footer/Footer';
 import Header from './../../components/Header/Header';
 
 const Home = () => {
-    let server = 'http://localhost:1337'
+    let server = 'vitamin-strapi.onrender.com'
 
     let lang = localStorage.getItem('selectedLanguage');
 
@@ -28,7 +28,7 @@ const Home = () => {
                 await newPromise();
                 const response = await fetch(homePage, {
                     headers: {
-                        Authorization: `Bearer b75776599df32545d6e9e7d468f8fc1ec3876b31a190232475eb3dcca0f7e663bee7cd2dbc1325dfd3564db055bfa8d8bfc340dffb204d04fd174cf984a4804392dec9c6efe62e185727c98b7475da3c75b80e66e6ab8e552126b86142c3ef265a3cfafe9602ffcb7de97d4344560640f4fcb1803592a23f3525cd13de183ade`
+                        Authorization: `Bearer 7c8c0a4eb49f1a805223ddc1c4cf372097105591875a611b9a2441195a7b0a068f494b9d2e96d87517c7200383390c70ee5d90162b1f58c6f5826ce7356997dfdc33dfb3e67b4b2be5798450d7184b4fbbf1da25e56d8e672e6c668e9d1be6c8375c3623c908a7dc4f1f67f4cc6f855dffa8be229094f29eecda98e3dac9d0ce`
                     }
                 });
                 const data = await response.json();
