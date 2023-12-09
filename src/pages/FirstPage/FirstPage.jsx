@@ -56,7 +56,7 @@ const FirstPage = () => {
     return (
         <section className={styles.firstPage} style={backgroundStyle}>
             <div className={styles.head}>
-                <a href="/home" aria-label="Главная страница" className={styles.logo}>
+                <Link to="/home" aria-label="Главная страница" className={styles.logo}>
                     <LogoWithName
                         visibility='desctop'
                         url={logoImg.url}
@@ -64,7 +64,7 @@ const FirstPage = () => {
                         alt={logoImg.alternativeText}
                         name={logo.name}
                     />
-                </a>
+                </Link>
                 <h1>{data.title}</h1>
             </div>
             <div className={styles.foot}>
