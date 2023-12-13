@@ -4,6 +4,10 @@ import sprite from './../../images/icons/sprite.svg';
 
 const Language = () => {
     let [lang, setLang] = useState(localStorage.getItem('selectedLanguage') || 'ru');
+    if (!localStorage.getItem('selectedLanguage')) {
+        localStorage.setItem('selectedLanguage', 'ru');
+        document.location.reload()
+    }
     const changeLang = (newLang) => {
         setLang(newLang);
         localStorage.setItem('selectedLanguage', newLang);
