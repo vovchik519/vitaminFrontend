@@ -25,7 +25,7 @@ const Gallery = () => {
                 await newPromise();
                 const response = await fetch(galleryPage, {
                     headers: {
-                        Authorization: `Bearer afd2f38f8ba0b68ec197f71a6b8c3af7f30656ef362e8dd77602a707fda378ad471de0eb2854feddad49e365122884e2688adbf517669b970c1fa0bca5c2a27b93f4b7aaf6ef084d1520125d7e17964b619e9ca8566761b9a20bcb9974c9e097dff0f96e9c13b2e064a707e2be0415a1918884ae4805804ef04ed3dfd707c5d9`
+                        Authorization: `Bearer http://localhost:3000/home`
                     }
                 });
                 const data = await response.json();
