@@ -3,7 +3,7 @@ import styles from './BlockList.module.scss';
 import { Link } from 'react-router-dom';
 
 const BlockList = (props) => {
-    let server = 'http://localhost:1337'
+    let server = 'https://vitamin-strapi.onrender.com/admin'
 
     const { descriptions } = props;
     const { descriptionsIndents } = props;
