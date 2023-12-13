@@ -1,3 +1,26 @@
+.wrapperTwo {
+    padding: clamp(40px, calc(4.6875rem + ((1vw - 10.24px) * 5.2711)), 75px) 0
+        clamp(60px, calc(6.25rem + ((1vw - 10.24px) * 6.0241)), 100px);
+}
+.blockTwo {
+    p,
+    h2 {
+        font-family: PT Root UI;
+        font-size: clamp(
+            14px,
+            calc(1.125rem + (14 - 18) * ((100vw - 1440px) / (360 - 1440))),
+            18px
+        );
+        font-weight: 500;
+        line-height: 150%;
+        letter-spacing: 0.54px;
+        text-transform: none;
+    }
+    h2 {
+        font-weight: 700;
+        margin-bottom: clamp(18px, calc(1.875rem + (18 - 30) * ((100vw - 1440px) / (360 - 1440))), 30px);
+    }
+}
 .wrapper {
     position: relative;
     padding: clamp(40px, calc(4.6875rem + ((1vw - 10.24px) * 5.2711)), 75px)

@@ -4,7 +4,7 @@ import Name from './../../ui/Name/Name';
 import LinkLight from './../../ui/LinkLight/LinkLight';
 
 const BlockTextTwo = (props) => {
-    let server = 'https://vitamin-strapi.onrender.com'
+    let server = 'http://localhost:1337'
 
     const { descriptions } = props;
     const { indents } = props;

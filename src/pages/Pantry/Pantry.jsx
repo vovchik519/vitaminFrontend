@@ -4,13 +4,15 @@ import { ImageGroup, Image } from 'react-fullscreen-image'
 import styles from './Pantry.module.scss';
 import FirstScreen from './../../components/FirstScreen/FirstScreen';
 import Masonry from 'react-masonry-css';
+import Poem from './../../components/Poem/Poem';
 import PoemSection from '../../components/PoemSection/PoemSection';
 
 import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 const Pantry = () => {
-    let server = 'https://vitamin-strapi.onrender.com'
+    let server = 'http://localhost:1337'
 
     let lang = localStorage.getItem('selectedLanguage');
 
@@ -26,7 +28,7 @@ const Pantry = () => {
                 await newPromise();
                 const response = await fetch(PantryPage, {
                     headers: {
-                        Authorization: `Bearer 7c8c0a4eb49f1a805223ddc1c4cf372097105591875a611b9a2441195a7b0a068f494b9d2e96d87517c7200383390c70ee5d90162b1f58c6f5826ce7356997dfdc33dfb3e67b4b2be5798450d7184b4fbbf1da25e56d8e672e6c668e9d1be6c8375c3623c908a7dc4f1f67f4cc6f855dffa8be229094f29eecda98e3dac9d0ce`
+                        Authorization: `Bearer 693722d747686f20e7deb2fbe7b3eecbdb8720b42c1ad70d4ee73e75ecc0a8f46ffb61a89c6bc514385ae6e79f1f5c6851cea7996bcb1ef5a31ed3882ed43457b5345a26cbc9c08b2b2f738f18a25de50c152075e14e4896e5b599e0ed04c73977e8c67fc0d92de41c116c773d6716cbf425351cac529294d3988300d9827b9c`
                     }
                 });
                 const data = await response.json();
@@ -75,6 +77,13 @@ const Pantry = () => {
                 setGalleryDescriptionIndent(galleryDescriptionIndentArray)
                 setGalleryImage(galleryImageArray)
                 setGallerySignature(gallerySignatureArray)
+                // poem
+                setPoems(data.data.attributes.poem);
+                setPoemItem(data.data.attributes.poem.poemItem);
+                setPoemBlock(data.data.attributes);
+                setPoemBlockImage(data.data.attributes.PoemBlock.image.data.attributes);
+                setPoemBlockButton(data.data.attributes.PoemBlock.button)
+                setPoemBlockLine(data.data.attributes.PoemBlock.poemLine)
             } catch (e) {
                 console.log(e);
             }
@@ -87,7 +96,14 @@ const Pantry = () => {
     const [mainScreenTitle, setMainScreenTitle] = useState({});
     const [mainScreenImage, setMainScreenImage] = useState({});
     const [mainScreenDecoration, setMainScreenDecoration] = useState({});
-    // gallery
+    // poem
+    const [poems, setPoems] = useState({});
+    const [poemItem, setPoemItem] = useState({});
+    let poemParagraphArray = []
+    let poemIndentsArray = []
+    multiData(poemParagraphArray, poemItem, 'paragraph')
+    multiData(poemIndentsArray, poemItem, 'removeIndentation')
+    // galery
     const [galleryId, setGalleryId] = useState([]);
     const [galleryTitle, setGalleryTitle] = useState([]);
     const [gallerySubTitle, setGallerySubTitle] = useState([]);
@@ -95,11 +111,26 @@ const Pantry = () => {
     const [galleryDescriptionIndent, setGalleryDescriptionIndent] = useState([]);
     const [galleryImage, setGalleryImage] = useState([]);
     const [gallerySignature, setGallerySignature] = useState([]);
+    // poem
+    const [poemBlockImage, setPoemBlockImage] = useState('');
+    const [poemBlockButton, setPoemBlockButton] = useState({});
+    const [poemBlockLine, setPoemBlockLine] = useState({});
+    const [poemBlock, setPoemBlock] = useState({});
+    let poemBlockArray = []
+    let poemBlockIndents = []
+    multiData(poemBlockArray, poemBlockLine, 'paragraph')
+    multiData(poemBlockIndents, poemBlockLine, 'removeIndentation')
     const breakpointColumnsObj = {
         default: 3,
         1024: 2,
         520: 1,
     };
+
+    function multiData(array, data, key) {
+        for (let i = 0; i < data.length; i++) {
+            array.push(data[i][key])
+        }
+    }
     return (
         <>
             <Header />
@@ -152,6 +183,34 @@ const Pantry = () => {
                         </div>
                     ))}
                 </div>
+                {poemParagraphArray.length !== 0 ?
+                    <Poem
+                        title={poems.description}
+                        description={poems.title}
+                        titleTwo={poems.titleTwo}
+                        content={poemParagraphArray}
+                        indents={poemIndentsArray}
+                    /> : null
+                }
+                {poemBlockArray.length !== 0 ?
+                    <div className="container">
+                        <div className={styles.poemBlock}>
+                            <div className={styles.poemBlockImage}>
+                                <img src={poemBlockImage.url} alt={poemBlockImage.alternativeText} />
+                            </div>
+                            <div className={styles.poemBlockInfo}>
+                                <div className={styles.poemBlockInfoWrap}>
+                                    <div className={styles.poemBlockParagraph}>
+                                        {poemBlockArray.map((paragraph, index) => (
+                                            <p className={poemBlockIndents[index] === true ? '' : 'indent'} key={index}>{paragraph}</p>
+                                        ))}
+                                    </div>
+                                </div>
+                                <Link to={poemBlockButton.link}>{poemBlockButton.name}</Link>
+                            </div>
+                        </div>
+                    </div> : null
+                }
                 <PoemSection page='pantry' />
             </div>
             <Footer />

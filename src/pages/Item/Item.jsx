@@ -14,7 +14,7 @@ import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 
 const Item = () => {
-    let server = 'https://vitamin-strapi.onrender.com'
+    let server = 'http://localhost:1337'
 
     let lang = localStorage.getItem('selectedLanguage');
 
@@ -30,7 +30,7 @@ const Item = () => {
                 await newPromise();
                 const response = await fetch(ArticlePage, {
                     headers: {
-                        Authorization: `Bearer 7c8c0a4eb49f1a805223ddc1c4cf372097105591875a611b9a2441195a7b0a068f494b9d2e96d87517c7200383390c70ee5d90162b1f58c6f5826ce7356997dfdc33dfb3e67b4b2be5798450d7184b4fbbf1da25e56d8e672e6c668e9d1be6c8375c3623c908a7dc4f1f67f4cc6f855dffa8be229094f29eecda98e3dac9d0ce`
+                        Authorization: `Bearer 693722d747686f20e7deb2fbe7b3eecbdb8720b42c1ad70d4ee73e75ecc0a8f46ffb61a89c6bc514385ae6e79f1f5c6851cea7996bcb1ef5a31ed3882ed43457b5345a26cbc9c08b2b2f738f18a25de50c152075e14e4896e5b599e0ed04c73977e8c67fc0d92de41c116c773d6716cbf425351cac529294d3988300d9827b9c`
                     }
                 });
                 const data = await response.json();

@@ -147,6 +147,82 @@
         border-radius: 10px;
     }
 }
+.poemBlock {
+    margin: clamp(40px, calc(4.6875rem + ((1vw - 10.24px) * 5.2711)), 75px) 0
+        clamp(60px, calc(6.25rem + ((1vw - 10.24px) * 6.0241)), 100px);
+}
+.poemBlock {
+    display: flex;
+    gap: 0 clamp(64px, calc(10rem + ((1vw - 14.4px) * 23.0769)), 160px);
+}
+.poemBlockImage {
+    width: clamp(540px, calc(45.5rem + ((1vw - 14.4px) * 45.1923)), 728px);
+    height: clamp(534px, calc(45rem + ((1vw - 14.4px) * 44.7115)), 720px);
+    border-radius: 15px;
+    img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+}
+.poemBlockInfoWrap{
+    flex: 1 1 auto;
+}
+.poemBlockParagraph {
+    -webkit-line-clamp: 20;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.poemBlockInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    p {
+        font-size: clamp(
+            14px,
+            calc(1.125rem + (14 - 18) * ((100vw - 1440px) / (360 - 1440))),
+            18px
+        );
+        font-weight: 300;
+        line-height: 135%;
+    }
+    a {
+        flex: 0 0 auto;
+        font-size: clamp(14px, calc(1.25rem + ((1vw - 14.4px) * 0.5556)), 20px);
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: 1px;
+        text-decoration-line: underline;
+        text-transform: uppercase;
+        margin-top: 24px;
+    }
+    width: 303px;
+}
+@media (max-width: 768px) {
+    .poemBlock {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(24px, calc(2.5rem + ((1vw - 7.68px) * 3.5714)), 40px) 0;
+    }
+    .poemBlockImage {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .poemBlockInfo {
+        margin: 0 auto;
+    }
+}
 @media (max-width: 580px) {
     .images {
         :global {

@@ -11,7 +11,7 @@ import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 
 const PoemItem = () => {
-    let server = 'https://vitamin-strapi.onrender.com'
+    let server = 'http://localhost:1337'
 
     let lang = localStorage.getItem('selectedLanguage');
 
@@ -27,12 +27,13 @@ const PoemItem = () => {
                 await newPromise();
                 const response = await fetch(PoemData, {
                     headers: {
-                        Authorization: `Bearer 7c8c0a4eb49f1a805223ddc1c4cf372097105591875a611b9a2441195a7b0a068f494b9d2e96d87517c7200383390c70ee5d90162b1f58c6f5826ce7356997dfdc33dfb3e67b4b2be5798450d7184b4fbbf1da25e56d8e672e6c668e9d1be6c8375c3623c908a7dc4f1f67f4cc6f855dffa8be229094f29eecda98e3dac9d0ce`
+                        Authorization: `Bearer 693722d747686f20e7deb2fbe7b3eecbdb8720b42c1ad70d4ee73e75ecc0a8f46ffb61a89c6bc514385ae6e79f1f5c6851cea7996bcb1ef5a31ed3882ed43457b5345a26cbc9c08b2b2f738f18a25de50c152075e14e4896e5b599e0ed04c73977e8c67fc0d92de41c116c773d6716cbf425351cac529294d3988300d9827b9c`
                     }
                 });
                 const data = await response.json();
                 // articles
                 let articlesTitleArray = []
+                let articlesTypeArray = []
                 let articlesParagraphArray = []
                 let articlesParagraphIndentsArray = []
                 let articlesIdArray = []
@@ -41,6 +42,7 @@ const PoemItem = () => {
                     let articlesBlockParagraphIndents = []
                     let articlesBlockId = []
                     articlesTitleArray.push(data.data.attributes.poemsList.poems.data[0].attributes.item[i].title)
+                    articlesTypeArray.push(data.data.attributes.poemsList.poems.data[0].attributes.item[i].storiesStyle)
                     for (let j = 0; j < data.data.attributes.poemsList.poems.data[0].attributes.item[i].paragraph.length; j++) {
                         articlesBlockId.splice(0, 1, data.data.attributes.poemsList.poems.data[0].attributes.item[i].id)
                         articlesBlockParagraph.push(data.data.attributes.poemsList.poems.data[0].attributes.item[i].paragraph[j].paragraph)
@@ -54,6 +56,7 @@ const PoemItem = () => {
                 setArticlesParagraph(articlesParagraphArray)
                 setArticlesParagraphIndents(articlesParagraphIndentsArray)
                 setArticlesId(articlesIdArray)
+                setArticlesType(articlesTypeArray)
             } catch (e) {
                 console.log(e);
             }
@@ -63,9 +66,11 @@ const PoemItem = () => {
 
     // article
     const [articlesId, setArticlesId] = useState([]);
+    const [articlesType, setArticlesType] = useState([]);
     const [articlesTitle, setArticlesTitle] = useState([]);
     const [articlesParagraph, setArticlesParagraph] = useState([]);
     const [articlesParagraphIndents, setArticlesParagraphIndents] = useState([]);
+    console.log(articlesType)
     function handleReloadClick() {
         setTimeout(() => {
             window.location.reload();
@@ -75,26 +80,48 @@ const PoemItem = () => {
     return (
         <>
             <Header />
-            <section className={styles.wrapper}>
-                <div className="container">
-                    {articlesId.map((blockId, index) => (
-                        blockId == window.location.hash.substring(1) ? (
-                            <div key={index} className={styles.block}>
-                                <h2>
-                                    {articlesTitle[index]}
-                                </h2>
-                                <div className={styles.text}>
-                                    {articlesParagraph[index].map((textId, textIndex) => (
-                                        <p key={textIndex} className={articlesParagraphIndents[index][textIndex] === true ? '' : 'indent'}>
-                                            {articlesParagraph[index][textIndex]}
-                                        </p>
-                                    ))}
+            {articlesId.map((blockId, index) => (
+                blockId == window.location.hash.substring(1) ? (
+                    <div key={index}>
+                        {articlesType[index] === true ?
+                            <section className={styles.wrapperTwo}>
+                                <div className="container">
+
+                                    <div className={styles.blockTwo}>
+                                        <h2>
+                                            {articlesTitle[index]}
+                                        </h2>
+                                        <div className={styles.text}>
+                                            {articlesParagraph[index].map((textId, textIndex) => (
+                                                <p key={textIndex} className={articlesParagraphIndents[index][textIndex] === true ? '' : 'indent'}>
+                                                    {articlesParagraph[index][textIndex]}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        ) : null
-                    ))}
-                </div>
-            </section>
+                            </section> :
+                            <section className={styles.wrapper}>
+                                <div className="container">
+
+                                    <div className={styles.block}>
+                                        <h2>
+                                            {articlesTitle[index]}
+                                        </h2>
+                                        <div className={styles.text}>
+                                            {articlesParagraph[index].map((textId, textIndex) => (
+                                                <p key={textIndex} className={articlesParagraphIndents[index][textIndex] === true ? '' : 'indent'}>
+                                                    {articlesParagraph[index][textIndex]}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        }
+                    </div>
+                ) : null
+            ))}
             <PoemSection
                 event={handleReloadClick}
                 page='poem-page'
