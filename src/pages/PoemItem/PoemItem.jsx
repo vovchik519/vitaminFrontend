@@ -11,7 +11,7 @@ import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 
 const PoemItem = () => {
-    let server = 'https://vitamin-strapi.onrender.com/admin'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     let lang = localStorage.getItem('selectedLanguage');
 

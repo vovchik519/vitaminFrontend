@@ -10,7 +10,7 @@ import styles from './PoemList.module.scss';
 import sprite from './../../images/icons/sprite.svg';
 
 const PoemList = (props) => {
-    let server = 'https://vitamin-strapi.onrender.com/admin'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     let lang = localStorage.getItem('selectedLanguage');
 

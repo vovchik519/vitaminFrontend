@@ -7,7 +7,7 @@ import LogoWithName from './../../components/LogoWithName/LogoWithName';
 import { Link } from 'react-router-dom';
 
 const FirstPage = () => {
-    let server = 'https://vitamin-strapi.onrender.com/admin'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     let lang = localStorage.getItem('selectedLanguage')
     useEffect(() => {

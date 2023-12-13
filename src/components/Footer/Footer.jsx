@@ -5,7 +5,7 @@ import LogoWithName from './../LogoWithName/LogoWithName';
 import { Link } from 'react-router-dom';
 
 const Footer = (props) => {
-    let server = 'https://vitamin-strapi.onrender.com/admin'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     let [lang, setLang] = useState(localStorage.getItem('selectedLanguage') || 'ru');
     const changeLang = (newLang) => {

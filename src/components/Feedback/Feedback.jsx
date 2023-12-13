@@ -4,7 +4,7 @@ import Name from './../../ui/Name/Name';
 import ButtonDark from './../../ui/ButtonDark/ButtonDark';
 
 const Feedback = (props) => {
-    let server = 'https://vitamin-strapi.onrender.com/admin'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     const { inputs } = props;
 

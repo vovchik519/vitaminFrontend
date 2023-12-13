@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FourImage.module.scss';
 
 const FourImage = (props) => {
-    let server = 'https://vitamin-strapi.onrender.com/admin'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     const { descriptionsTop } = props;
     const { descriptionsTopIndents } = props;

@@ -3,7 +3,7 @@ import styles from './BlockTextOne.module.scss';
 import Name from './../../ui/Name/Name';
 
 const BlockTextOne = (props) => {
-    let server = 'https://vitamin-strapi.onrender.com/admin'
+    let server = 'https://vitamin-strapi.onrender.com'
 
     const { descriptions } = props;
     const { indents } = props;
