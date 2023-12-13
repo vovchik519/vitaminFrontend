@@ -22,7 +22,7 @@ const Header = () => {
                 await newPromise();
                 const response = await fetch(header, {
                     headers: {
-                        Authorization: `Bearer http://localhost:3000/home`
+                        Authorization: `Bearer afd19907103b263dc4102aaa14423bb320719813562c7e3bf752bb7793293d1661443b01ffa7d3094dc29268226832582d05e4ef8efa5a0bcd299aa8c42e0a69f96c58ba126448cec746f0ac55fc59da0115c656357fcefaed94d637cc390ce3680d18b700fcd2b12d84cacdbcda10a1dd4e18d9d6b70d80b7cefc2af2eab96e`
                     }
                 });
                 const data = await response.json();
