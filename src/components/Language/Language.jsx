@@ -14,6 +14,7 @@ const Language = () => {
         document.location.reload()
         if (document.location.pathname === '/item' || document.location.pathname === '/poem') {
             window.history.back();
+            document.location.reload()
         }
     };
     return (
