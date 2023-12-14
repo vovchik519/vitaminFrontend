@@ -22,7 +22,7 @@ const Header = () => {
                 await newPromise();
                 const response = await fetch(header, {
                     headers: {
-                        Authorization: `Bearer afd19907103b263dc4102aaa14423bb320719813562c7e3bf752bb7793293d1661443b01ffa7d3094dc29268226832582d05e4ef8efa5a0bcd299aa8c42e0a69f96c58ba126448cec746f0ac55fc59da0115c656357fcefaed94d637cc390ce3680d18b700fcd2b12d84cacdbcda10a1dd4e18d9d6b70d80b7cefc2af2eab96e`
+                        Authorization: `Bearer 58311277418a1f6ac723a66b9db9c9b80f0ff6f6c34f18fb90d7375db14538c0f3611f1156e0c86c11d2ee21eb35b6050bf3fa8c3aafd5ba9b655451d9872da6b632e37882e2b166c02d9363aa74cef6796780f4cde18b3caa481959db7aa9aa1a3afc099e7cd8b1539b080381cdc1c8352ced2a7ef7a14a862bd4e3e62ca6f7`
                     }
                 });
                 const data = await response.json();
@@ -54,8 +54,12 @@ const Header = () => {
     let body = document.querySelector('body')
     const handleMenuOpen = () => {
         setMenuOpen(!menuOpen);
-        body.classList.toggle('lock')
     };
+    if (menuOpen === true) {
+        body.classList.add('lock')
+    } else {
+        body.classList.remove('lock')
+    }
     return (
         <header className={styles.header}>
             <div className='container'>

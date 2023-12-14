@@ -5,8 +5,9 @@ import LogoWithName from './../LogoWithName/LogoWithName';
 import { Link } from 'react-router-dom';
 
 const Footer = (props) => {
-    let server = 'https://vitamin-strapi.onrender.com'
+    const currentYear = new Date().getFullYear();
 
+    let server = 'https://vitamin-strapi.onrender.com'
     let [lang, setLang] = useState(localStorage.getItem('selectedLanguage') || 'ru');
     const changeLang = (newLang) => {
         setLang(newLang);
@@ -26,7 +27,7 @@ const Footer = (props) => {
                 await newPromise();
                 const response = await fetch(footer, {
                     headers: {
-                        Authorization: `Bearer afd19907103b263dc4102aaa14423bb320719813562c7e3bf752bb7793293d1661443b01ffa7d3094dc29268226832582d05e4ef8efa5a0bcd299aa8c42e0a69f96c58ba126448cec746f0ac55fc59da0115c656357fcefaed94d637cc390ce3680d18b700fcd2b12d84cacdbcda10a1dd4e18d9d6b70d80b7cefc2af2eab96e`
+                        Authorization: `Bearer 58311277418a1f6ac723a66b9db9c9b80f0ff6f6c34f18fb90d7375db14538c0f3611f1156e0c86c11d2ee21eb35b6050bf3fa8c3aafd5ba9b655451d9872da6b632e37882e2b166c02d9363aa74cef6796780f4cde18b3caa481959db7aa9aa1a3afc099e7cd8b1539b080381cdc1c8352ced2a7ef7a14a862bd4e3e62ca6f7`
                     }
                 });
                 const data = await response.json();
@@ -101,20 +102,20 @@ const Footer = (props) => {
                                     <li key={index}>
                                         {item.link == null ? (
                                             <p>
-                                                <img src={`${item.url}`} alt={item.alt} className={styles.icon}/>
-                                                <img src={`${item.urlWhite}`} alt={item.alt} className={styles.iconWhite}/>
+                                                <img src={`${item.url}`} alt={item.alt} className={styles.icon} />
+                                                <img src={`${item.urlWhite}`} alt={item.alt} className={styles.iconWhite} />
                                                 {item.name}
                                             </p>
                                         ) : item.type == null ? (
                                             <a href={`${item.link}`}>
-                                                <img src={`${item.url}`} alt={item.alt} className={styles.icon}/>
-                                                <img src={`${item.urlWhite}`} alt={item.alt} className={styles.iconWhite}/>
+                                                <img src={`${item.url}`} alt={item.alt} className={styles.icon} />
+                                                <img src={`${item.urlWhite}`} alt={item.alt} className={styles.iconWhite} />
                                                 {item.name}
                                             </a>
                                         ) : (
                                             <a href={`${item.type}${item.link}`}>
-                                                <img src={`${item.url}`} alt={item.alt} className={styles.icon}/>
-                                                <img src={`${item.urlWhite}`} alt={item.alt} className={styles.iconWhite}/>
+                                                <img src={`${item.url}`} alt={item.alt} className={styles.icon} />
+                                                <img src={`${item.urlWhite}`} alt={item.alt} className={styles.iconWhite} />
                                                 {item.name}
                                             </a>
                                         )}
@@ -126,11 +127,11 @@ const Footer = (props) => {
                 </div>
                 <div className={styles.subinfoWrap}>
                     <div className="container">
-                        {lang === 'ru' ? 
-                        <div className={styles.subinfo}>
-                            <p>Все права защищены @ 2023</p>
-                            <p>Политика конфиденциальности</p>
-                            <p>Сделано в Deviart</p>
+                        {lang === 'ru' ?
+                            <div className={styles.subinfo}>
+                                <p>&copy; Все права защищены {currentYear}</p>
+                                <p>Политика конфиденциальности</p>
+                                <p>Сделано в Deviart</p>
                             </div>
                             :
                             <div className={styles.subinfo}>
