@@ -11,11 +11,9 @@ const Language = () => {
     const changeLang = (newLang) => {
         setLang(newLang);
         localStorage.setItem('selectedLanguage', newLang);
+        document.location.reload()
         if (document.location.pathname === '/item' || document.location.pathname === '/poem') {
             window.history.back();
-            document.location.reload(true)
-        } else {
-            document.location.reload()
         }
     };
     return (
