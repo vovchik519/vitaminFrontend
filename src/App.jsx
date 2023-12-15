@@ -34,7 +34,7 @@ const App = () => {
       {isLoading ? (
         <Preloader />
       ) : null}
-      <div>
+      <div className={isLoading ? 'hidden' : null}>
         <Routes>
           <Route path="/" index element={<FirstPage />} />
           <Route path="/home" element={<Home />} />
@@ -47,7 +47,6 @@ const App = () => {
         </Routes>
       </div>
     </div>
-
   );
 };
 

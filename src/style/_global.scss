@@ -25,6 +25,11 @@ h2 {
     line-height: 115%;
     text-transform: uppercase;
 }
+.hidden{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
 .indent {
     margin-top: clamp(14px, calc(1.5rem + ((1vw - 14.4px) * 0.9259)), 24px);
 }
